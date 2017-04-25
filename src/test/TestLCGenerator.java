@@ -36,5 +36,12 @@ public class TestLCGenerator {
 	public String toString() {
 		return "TestLCG";
 	}
+	
+	public static void main(String[] args){	
+		TestLCGenerator testLCG = new TestLCGenerator();
+		testLCG.startTest();
+		
+	}
+
 
 }

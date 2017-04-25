@@ -1,5 +1,7 @@
 package lCGenerator;
 
+import test.TestLCGenerator;
+
 public class LCG {
 	
 	/*
@@ -53,7 +55,6 @@ public class LCG {
 	public long getN() {
 		return n;
 	}
-	
 		
 	
 

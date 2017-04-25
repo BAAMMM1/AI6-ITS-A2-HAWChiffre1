@@ -23,7 +23,7 @@ public class TestHC1 {
 	}
 
 	public void startTest() {
-		Printer.prompt(this, "Starte HC1 Test");
+		Printer.promptTestOut(this, "Starte HC1 Test");
 		IOController controller = new IOController();
 		HC1 hc1LCG = new HC1(START_VALUE, TEST_LCG_FILE_PATH, TEST_LCG_FILE_ENCRYPT_PATH);
 		HC1 hc2LCG = new HC1(START_VALUE, TEST_LCG_FILE_ENCRYPT_PATH, TEST_LCG_FILE_DECRYPT_PATH);
@@ -41,7 +41,7 @@ public class TestHC1 {
 			String fileLCG_Defualt = new String(controller.readFile(TEST_LCG_FILE_PATH));
 			String fileLCG_DeEnCrypt = new String(controller.readFile(TEST_LCG_FILE_DECRYPT_PATH));
 
-			Printer.prompt(this, "File sind gleich: " + fileLCG_Defualt.equals(fileLCG_DeEnCrypt) + " mit LCG");
+			Printer.promptTestOut(this, "File sind gleich: " + fileLCG_Defualt.equals(fileLCG_DeEnCrypt) + " mit LCG");
 			
 			/*
 			 * Ausführung mit der SecureRandom Klasse
@@ -52,14 +52,14 @@ public class TestHC1 {
 			String fileSecureRandom_Default = new String(controller.readFile(TEST_SECURE_RANDOM_FILE_PATH));
 			String fileSecureRandom_DeEnCrypt = new String(controller.readFile(TEST_SECURE_RANDOM_FILE_DECRYPT_PATH));
 
-			Printer.prompt(this, "File sind gleich: " + fileSecureRandom_Default.equals(fileSecureRandom_DeEnCrypt) + " mit SecureRandom");
+			Printer.promptTestOut(this, "File sind gleich: " + fileSecureRandom_Default.equals(fileSecureRandom_DeEnCrypt) + " mit SecureRandom");
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		Printer.prompt(this, "Beende HC1 Test");
+		Printer.promptTestOut(this, "Beende HC1 Test");
 	}
 
 	public static void main(String[] args) {

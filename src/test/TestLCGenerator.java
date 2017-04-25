@@ -14,21 +14,21 @@ public class TestLCGenerator {
 	}
 
 	public void startTest() {
-		Printer.prompt(this, "Starte LCG Test");
+		Printer.promptTestOut(this, "Starte LCG Test");
 		this.initTest();
 		this.computeTest();
-		Printer.prompt(this, "Beende LCG Test");
+		Printer.promptTestOut(this, "Beende LCG Test");
 	}
 
 	private void initTest() {
 		this.lCG = new LCG(START_VALUE);
-		Printer.prompt(this, "START_VALUE: " + START_VALUE + " - a: " + this.lCG.getA()
+		Printer.promptTestOut(this, "START_VALUE: " + START_VALUE + " - a: " + this.lCG.getA()
 				+ " - b: " + this.lCG.getB() + " - N: " + this.lCG.getN());
 	}
 
 	private void computeTest() {
 		for (int i = 0; i < RUNS - 1; i++) {
-			Printer.prompt(this, "" + (this.lCG.nextInt() & 0x000000FF));
+			Printer.promptTestOut(this, "" + (this.lCG.nextInt() & 0x000000FF));
 		}
 	}
 

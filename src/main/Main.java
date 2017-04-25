@@ -1,9 +1,5 @@
 package main;
 
-import java.io.IOException;
-
-import hawChiffre1.IOController;
-
 public class Main {
 	
 

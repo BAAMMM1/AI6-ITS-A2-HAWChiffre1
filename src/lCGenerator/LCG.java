@@ -1,7 +1,5 @@
 package lCGenerator;
 
-import test.TestLCGenerator;
-
 public class LCG {
 	
 	/*

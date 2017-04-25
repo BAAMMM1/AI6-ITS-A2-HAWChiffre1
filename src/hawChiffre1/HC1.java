@@ -8,46 +8,40 @@ import lCGenerator.LCG;
 
 public class HC1 {
 	
-	private String pathIn;
-	private String pathOut;
+
 	private IOController controller;
-	private LCG lcg;
 	private java.security.SecureRandom secureRandom;
 
-	public HC1(int startValue, String pathIn, String pathOut){
-		this.pathIn = pathIn;
-		this.pathOut = pathOut;
+	public HC1(){
 		this.controller = new IOController();
-		this.lcg = new LCG(startValue);
-		this.secureRandom = new SecureRandom();
-		this.secureRandom.setSeed(startValue);
+		
 	}
 	
-	public void encryptFileWithLCG() throws FileNotFoundException, IOException{
-		byte[] file = controller.readFile(this.pathIn);
+	public void cryptFile(int startValue, String pathIn, String pathOut, boolean lcgFlag) throws FileNotFoundException, IOException{
+		LCG lcg = new LCG(startValue);
+		
+		SecureRandom secureRandom = new SecureRandom();
+		secureRandom.setSeed(startValue);
+		
+		byte[] file = controller.readFile(pathIn);
 		
 		for(int i = 0; i < file.length; i++){
-			int schluessel = this.lcg.nextInt();
+			int schluessel;
+			if(lcgFlag){
+				schluessel = lcg.nextInt();
+			} else {
+				schluessel = secureRandom.nextInt();
+			}
+			
+			/*
+			 * XOR in Java ^
+			 */
 			file[i] = (byte) (file[i] ^ schluessel);
 		}
 		
-		
 		this.controller.writeFile(file, pathOut);
 	}
-	
-	public void encryptFileWithSecureRandom() throws FileNotFoundException, IOException{
-		byte[] file = controller.readFile(this.pathIn);
-		
-		for(int i = 0; i < file.length; i++){
-			int schluessel = this.secureRandom.nextInt();
-			file[i] = (byte) (file[i] ^ schluessel);
-		}
-		
-		
-		this.controller.writeFile(file, pathOut);
-	}
-	
-	
+
 	
 	
 	 public static void main(String[] args){
@@ -55,10 +49,10 @@ public class HC1 {
 			int startValue = Integer.valueOf(args[0]).intValue();
 			String pathIn = args[1];
 			String pathOut = args[2];
-			HC1 hc1 = new HC1(startValue, pathIn, pathOut);
+			HC1 hc1 = new HC1();
 			
 			try {
-				hc1.encryptFileWithLCG();
+				hc1.cryptFile(startValue, pathIn, pathOut, true);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {

@@ -1,3 +1,0 @@
-Intels Optane Memory hat den Handel erreicht. Erste Tests bescheinigen die Wirksamkeit der kleinen SSD-Module als Systembeschleuniger 
-insbesondere zusammen mit einer HDD. Doch auch Kritik wird ge‰uﬂert: Negative Aspekte sind die kleinen Kapazit‰ten zum vergleichsweise 
-hohen Preis und die Restriktionen bei der Plattform.

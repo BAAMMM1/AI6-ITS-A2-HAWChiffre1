@@ -39,7 +39,7 @@ public class LCG {
 		/*
 		 * Wirft eine Exception, falls der int überläuft
 		 */
-		return Math.toIntExact(this.xAccu);
+		return (int) this.xAccu;
 	}
 
 	public long getA() {

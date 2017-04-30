@@ -7,7 +7,6 @@ import hawChiffre1.HC1;
 
 public class Main {
 
-	// Test after rename
 	public static void main(String[] args) {
 		if(args.length == 3) {
 			int startValue = Integer.valueOf(args[0]).intValue();

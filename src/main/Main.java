@@ -8,7 +8,7 @@ import hawChiffre1.HC1;
 public class Main {
 
 	// Test
-	public static void main(String[] args) {
+	public static void Main(String[] args) {
 		if(args.length == 3) {
 			int startValue = Integer.valueOf(args[0]).intValue();
 			String pathIn = args[1];
